@@ -2,6 +2,7 @@ package com.example.android_filepersistence
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -14,6 +15,8 @@ import java.io.InputStreamReader
 import java.io.OutputStreamWriter
 
 class MainActivity : AppCompatActivity() {
+
+    private val TAG = "mylog_mainActivity"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -34,6 +37,15 @@ class MainActivity : AppCompatActivity() {
             editor.putBoolean("isHandsome", true)
             ////缓存的数据存放在/data/data/com.example.Android_FilePersistence/shared_prefs 目录下
             editor.apply()
+        }
+
+        val buttonRestoreData = findViewById<Button>(R.id.button_restoreData)
+        buttonRestoreData.setOnClickListener {
+            val prefs = getSharedPreferences("data", Context.MODE_PRIVATE)
+            val name = prefs.getString("name", "null")
+            val age = prefs.getInt("age", 0)
+            val isHandsome = prefs.getBoolean("isHandsome", false)
+            Log.v(TAG , "name = $name, age = $age, isHadnsome = $isHandsome")
         }
 
     }
