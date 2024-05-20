@@ -1,0 +1,6 @@
+1.
+利用sharedPreference存储
+    1.1 利用Context::getSharedPreference方法获取sharedPreference对象
+    1.2 调用sharedPreference对象的edit方法 获取editor.
+    1.3 利用editor.putString, putInt等方法写入数据
+    1.4 editor.apply()保存数据

@@ -2,12 +2,11 @@ package com.example.android_filepersistence
 
 import android.content.Context
 import android.os.Bundle
+import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import java.io.BufferedReader
 import java.io.BufferedWriter
 import java.io.IOException
@@ -26,6 +25,17 @@ class MainActivity : AppCompatActivity() {
             editText.setSelection(inputText.length)
             Toast.makeText(this, "restore data", Toast.LENGTH_SHORT).show()
         }
+
+        val buttonSaveData = findViewById<Button>(R.id.button_saveData)
+        buttonSaveData.setOnClickListener {
+            val editor = getSharedPreferences("data", Context.MODE_PRIVATE).edit()
+            editor.putString("name", "zzmeow")
+            editor.putInt("age", 24)
+            editor.putBoolean("isHandsome", true)
+            ////缓存的数据存放在/data/data/com.example.Android_FilePersistence/shared_prefs 目录下
+            editor.apply()
+        }
+
     }
 
     override fun onDestroy() {

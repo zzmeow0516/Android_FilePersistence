@@ -8,4 +8,12 @@
         android:layout_height="wrap_content"
         android:hint="Type something here"
         />
+
+    <Button
+        android:id="@+id/button_saveData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="save Data"
+        android:layout_marginStart="10dp"/>
+
 </LinearLayout>
