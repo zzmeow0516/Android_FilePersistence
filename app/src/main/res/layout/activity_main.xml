@@ -30,4 +30,11 @@
         android:text="create DataBase"
         android:layout_marginStart="10dp"/>
 
+    <Button
+        android:id="@+id/button_addData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="add Data"
+        android:layout_marginStart="10dp"/>
+
 </LinearLayout>

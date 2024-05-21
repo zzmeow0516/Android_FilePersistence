@@ -1,5 +1,6 @@
 package com.example.android_filepersistence
 
+import android.content.ContentValues
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
@@ -49,9 +50,33 @@ class MainActivity : AppCompatActivity() {
         }
 
         val dbHelper = MyDataBaseHelper(this, "BookStore.db", 4)
+
         val buttonCreateDB = findViewById<Button>(R.id.button_createDB)
         buttonCreateDB.setOnClickListener {
             dbHelper.writableDatabase
+        }
+
+        val buttonAddData = findViewById<Button>(R.id.button_addData)
+        buttonAddData.setOnClickListener {
+            val db = dbHelper.writableDatabase
+            //组装第一条数据
+            val value1 = ContentValues().apply {
+                //没有给id赋值，因为在建表时已经设置了id自增
+                put("name", "Kotlin Core Code")
+                put("price", 58)
+                put("author", "Water")
+                put("pages", 300)
+            }
+            db.insert("Book", null, value1)
+
+            //组装第二条数据
+            val value2 = ContentValues().apply {
+                put("name", "Big Story")
+                put("price", 30)
+                put("author", "zzmeow")
+                put("pages", 666)
+            }
+            db.insert("Book", null, value2)
         }
 
 

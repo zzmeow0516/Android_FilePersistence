@@ -27,15 +27,18 @@
     <last-used-providers />
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files>
-      <object connection-id="a44e6db8-ac32-489c-b380-560011d3873e" object-ref="schemas/main/tables/Book" />
-    </open-files>
+    <open-files />
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="a44e6db8-ac32-489c-b380-560011d3873e" />
     <connection id="0dfa0fb2-c163-4b83-b4b5-26387a117182" />
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
+    <filter-actions connection-id="a44e6db8-ac32-489c-b380-560011d3873e" dataset="main.Category" active-filter-id="3e148028-9680-48d1-ba95-89cb7cc26496">
+      <filter id="3e148028-9680-48d1-ba95-89cb7cc26496" name="Filter 1" temporary="false" custom-name="false" type="basic" join-type="AND">
+        <condition column="id" operator="=" value="" active="true" />
+      </filter>
+    </filter-actions>
     <filter-actions connection-id="a44e6db8-ac32-489c-b380-560011d3873e" dataset="main.Book" active-filter-id="EMPTY_FILTER" />
   </component>
   <component name="DBNavigator.Project.ObjectQuickFilterManager">
