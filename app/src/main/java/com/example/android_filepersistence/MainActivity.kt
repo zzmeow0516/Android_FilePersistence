@@ -92,6 +92,14 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, "update Data", Toast.LENGTH_SHORT).show()
         }
 
+        //用于删除数据
+        val buttonDeleteData = findViewById<Button>(R.id.button_deleteData)
+        buttonDeleteData.setOnClickListener {
+            val db = dbHelper.writableDatabase
+            db.delete("Book", "pages > ?", arrayOf("500"))
+            Toast.makeText(this, "delete Data", Toast.LENGTH_SHORT).show()
+        }
+
     }
 
     override fun onDestroy() {
