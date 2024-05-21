@@ -48,6 +48,13 @@ class MainActivity : AppCompatActivity() {
             Log.v(TAG , "name = $name, age = $age, isHadnsome = $isHandsome")
         }
 
+        val dbHelper = MyDataBaseHelper(this, "BookStore.db", 4)
+        val buttonCreateDB = findViewById<Button>(R.id.button_createDB)
+        buttonCreateDB.setOnClickListener {
+            dbHelper.writableDatabase
+        }
+
+
     }
 
     override fun onDestroy() {
