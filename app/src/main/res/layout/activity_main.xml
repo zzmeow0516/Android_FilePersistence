@@ -37,4 +37,18 @@
         android:text="add Data"
         android:layout_marginStart="10dp"/>
 
+    <Button
+        android:id="@+id/button_updateData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="update Data"
+        android:layout_marginStart="10dp"/>
+
+    <Button
+        android:id="@+id/button_deleteData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="delete Data"
+        android:layout_marginStart="10dp"/>
+
 </LinearLayout>

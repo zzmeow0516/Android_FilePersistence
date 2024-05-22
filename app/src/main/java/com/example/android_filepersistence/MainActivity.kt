@@ -77,8 +77,28 @@ class MainActivity : AppCompatActivity() {
                 put("pages", 666)
             }
             db.insert("Book", null, value2)
+            Toast.makeText(this, "insert Data", Toast.LENGTH_SHORT).show()
         }
 
+        //用于更新数据
+        val buttonUpdateData = findViewById<Button>(R.id.button_updateData)
+        buttonUpdateData.setOnClickListener {
+            val db = dbHelper.writableDatabase
+            val value = ContentValues()
+            value.put("price", 9.9)
+            //第三个参数对应的是SQL语句的where部分，表示更新所有name等于?的行
+            //而?是一个占位符，可以通过第四个参数提供的一个字符串数组为第三个参数中的每个占位符指定相应的内容
+            db.update("Book", value, "name = ?", arrayOf("Kotlin Core Code"))
+            Toast.makeText(this, "update Data", Toast.LENGTH_SHORT).show()
+        }
+
+        //用于删除数据
+        val buttonDeleteData = findViewById<Button>(R.id.button_deleteData)
+        buttonDeleteData.setOnClickListener {
+            val db = dbHelper.writableDatabase
+            db.delete("Book", "pages > ?", arrayOf("500"))
+            Toast.makeText(this, "delete Data", Toast.LENGTH_SHORT).show()
+        }
 
     }
 
