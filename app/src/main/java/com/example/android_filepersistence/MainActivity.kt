@@ -2,6 +2,7 @@ package com.example.android_filepersistence
 
 import android.content.ContentValues
 import android.content.Context
+import android.database.Cursor
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -18,6 +19,7 @@ import java.io.OutputStreamWriter
 class MainActivity : AppCompatActivity() {
 
     private val TAG = "mylog_mainActivity"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -98,6 +100,25 @@ class MainActivity : AppCompatActivity() {
             val db = dbHelper.writableDatabase
             db.delete("Book", "pages > ?", arrayOf("500"))
             Toast.makeText(this, "delete Data", Toast.LENGTH_SHORT).show()
+        }
+
+        val buttonQueryData = findViewById<Button>(R.id.button_queryData)
+        buttonQueryData.setOnClickListener {
+            val db = dbHelper.writableDatabase
+            val cursor = db.query(false, "Book", null, null, null,
+                null,  null, null, null)
+            // 将数据指针移动到第一行
+            if (cursor.moveToFirst()) {
+                do {
+                    //遍历数据库中每一列
+                    val author = cursor.getString(cursor.getColumnIndexOrThrow("author"))
+                    val price = cursor.getDouble(cursor.getColumnIndexOrThrow("price"))
+                    val name = cursor.getString(cursor.getColumnIndexOrThrow("name"))
+                    val pages = cursor.getInt(cursor.getColumnIndexOrThrow("pages"))
+                    Log.v(TAG, "query data: author = $author, prize = $price, name = $name, pages = $pages")
+                }while (cursor.moveToNext())
+            }
+            cursor.close()
         }
 
     }

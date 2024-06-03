@@ -51,4 +51,11 @@
         android:text="delete Data"
         android:layout_marginStart="10dp"/>
 
+    <Button
+        android:id="@+id/button_queryData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="query Data"
+        android:layout_marginStart="10dp"/>
+
 </LinearLayout>
