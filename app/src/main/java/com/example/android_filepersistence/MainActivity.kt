@@ -102,6 +102,7 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, "delete Data", Toast.LENGTH_SHORT).show()
         }
 
+
         // 用于查询数据
         val buttonQueryData = findViewById<Button>(R.id.button_queryData)
         buttonQueryData.setOnClickListener {
