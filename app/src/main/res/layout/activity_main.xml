@@ -58,4 +58,11 @@
         android:text="query Data"
         android:layout_marginStart="10dp"/>
 
+    <Button
+        android:id="@+id/button_replaceData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="replace Data"
+        android:layout_marginStart="10dp"/>
+
 </LinearLayout>

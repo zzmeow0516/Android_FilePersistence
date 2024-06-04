@@ -15,6 +15,7 @@ import java.io.BufferedWriter
 import java.io.IOException
 import java.io.InputStreamReader
 import java.io.OutputStreamWriter
+import java.lang.Exception
 
 class MainActivity : AppCompatActivity() {
 
@@ -123,6 +124,27 @@ class MainActivity : AppCompatActivity() {
             cursor.close()
         }
 
+        //使用事务替换数据
+        val buttonReplaceData = findViewById<Button>(R.id.button_replaceData)
+        buttonReplaceData.setOnClickListener {
+            val db = dbHelper.writableDatabase
+            db.beginTransaction()
+            try {
+                db.delete("Book", null, null)
+                val values = ContentValues().apply {
+                    put("name", "Holy shit")
+                    put("price", 8)
+                    put("author", "aoligei")
+                    put("pages", 1)
+                }
+                db.setTransactionSuccessful()
+                Log.v(TAG, "set Transacation done!");
+            } catch (e: Exception) {
+                e.printStackTrace()
+            } finally {
+                db.endTransaction()
+            }
+        }
     }
 
     override fun onDestroy() {
